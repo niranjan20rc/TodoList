@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todo List</title>
+</head>
+<body>
+    <header>Todo List</header>
+    <div class="main">
+        <div class="ctr">
+
+
+
+            <h1>Your Task</h1>
+            <ul     id = "ul"></ul>
+              <input  id = "input">
+              <button id = "add">Add Task</button>
+              <h1 id="h1"></h1>
+             <ul id="completed"></ul>
+
+
+        </div>
+    </div>
+</body>
+
+<style>
+    *{
+    background-color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    color:rgb(4, 12, 18);
+    list-style: none;
+}
+header{
+    text-align: center;
+}
+.ctr{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+}
+
+
+#input{
+    border:1px solid black;
+    padding: 5px;
+    border-radius: 4px;
+    
+}
+
+
+#add{
+    background-color: royalblue;
+    color:white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    height: 40px;
+    width: 160px;
+}
+
+#add:hover{
+    background-color:rgb(113, 146, 244);
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+
+li{
+    height: 40px;
+    width: 100%;
+    padding:5px;
+    margin: 5px;
+    text-align: center;
+}
+</style>
+
+
+
+<script>
+
+let add=document.getElementById("add");
+let clear=document.getElementById("clear");
+
+
+
+add.onclick=()=>{
+    let input=document.getElementById("input");
+    let val = input.value;
+    //console.log(val);
+if(val!=""){
+
+
+   let li = document.createElement("li");
+   li.textContent=val;
+   
+
+   // add li
+    ul.appendChild(li);
+
+
+    // click n remove 
+    li.onclick=()=>{
+   
+   console.log( li.textContent);
+   li.remove();
+
+   // add to completed
+   let comp=document.getElementById("completed");
+   let list = document.createElement("li");
+   list.textContent=li.textContent;
+   comp.appendChild(list)
+   let h1=document.getElementById("h1").textContent="Completed Task"; 
+   }
+}
+}
+</script>
+</html>
